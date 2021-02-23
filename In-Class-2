@@ -1,0 +1,35 @@
+#1 Select max(Total)
+FROM Invoice;
+
+#2 Select Total
+From Invoice
+ORDER BY Total DESC
+LIMIT 1;
+
+#3 Select MediaType.Name, Count(Track.Name) Num_Tracks
+From Track
+INNER JOIN MediaType on Track.MediaTypeId = MediaType.MediaTypeId
+GROUP BY MediaType.Name
+ORDER BY Num_Tracks;
+
+#4 Select MediaType.Name, Count(Track.Name) Num_Tracks
+From Track
+INNER JOIN MediaType on Track.MediaTypeId = MediaType.MediaTypeId
+GROUP BY MediaType.Name
+ORDER BY Num_Tracks DESC;
+
+#5 Select MediaType.Name, Count(Track.Name) Num_Tracks
+From Track
+INNER JOIN MediaType on Track.MediaTypeId = MediaType.MediaTypeId
+GROUP BY MediaType.Name HAVING Num_Tracks > 200
+ORDER BY Num_Tracks DESC;
+
+#6 SELECT Count(*)
+FROM Track
+INNER JOIN Album ON Track.AlbumId = Album.AlbumID
+INNER JOIN Artist ON Album.ArtistId = Artist.ArtistId
+WHERE Artist.Name LIKE 'A%';
+
+#7 SELECT FirstName || ' ' || LastName as FullName, BirthDate, [BirthDate]/10*10 as [Decade]
+FROM Employee;
+
